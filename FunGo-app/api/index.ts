@@ -6,7 +6,7 @@ export const getItem = () => {
         queryFn: async () => {
 
 
-            return { categories: categories.data };
+            // return { categories: categories.data };
         },
     });
 };
