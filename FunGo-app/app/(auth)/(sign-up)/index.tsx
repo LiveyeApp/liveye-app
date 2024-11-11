@@ -1,12 +1,13 @@
 import { Link, router } from "expo-router";
 import { useState } from "react";
-import { Alert, Image, ScrollView, Text, View } from "react-native";
+import { Alert, Image, ScrollView, Text, View ,TouchableOpacity} from "react-native";
 import { ReactNativeModal } from "react-native-modal";
 import Swiper from "react-native-swiper";
 import CustomButton from "@/components/CustomButton";
 import InputField from "@/components/InputField";
 import OAuth from "@/components/OAuth";
 import { icons, images } from "@/components/constants";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function SignUp() {
     const [currentStep, setCurrentStep] = useState(0);
@@ -15,22 +16,30 @@ export default function SignUp() {
     const [form, setForm] = useState({ name: "", email: "", password: "" });
     const [verification, setVerification] = useState({state: "default", error: "",code: "",});
 
+
+
     return (
-        <ScrollView contentContainerStyle={{ flexGrow: 1 }} className="bg-white flex-1 ">
-            <View className="flex-grow-0 justify-center">
+        <SafeAreaView className=" flex-shrink-0 h-full items-center bg-white">
+            <View className="flex-auto justify-between">
                 {/* title */}
-                <View className="relative w-full h-[250px]">
+                <View className="relative  h-[150px]">
                     <Text className="text-2xl text-black font-JakartaSemiBold absolute bottom-5 left-5">
                         Create Your Account
                     </Text>
                 </View>
 
                 {/*User Content*/}
-                <View className="flex-auto p-5">
+                <View className="flex-auto  items-center">
                     <Swiper
                         index={currentStep}
                         scrollEnabled={scrollEnabled}
                         loop={false}
+                        dot={
+                            <View className="w-[32px] h-[4px] mx-1 bg-[#E2E8F0] rounded-full" />
+                          }
+                          activeDot={
+                            <View className="w-[32px] h-[4px] mx-1 bg-[#0286FF] rounded-full" />
+                          }
                         showsPagination={true}
                         onIndexChanged={(index) => {
                             setCurrentStep(index);
@@ -63,7 +72,7 @@ export default function SignUp() {
                                 value={form.password}
                                 onChangeText={(value) => setForm({ ...form, password: value })}
                             />
-                            <CustomButton title="Sign Up" className="mt-4" />
+                            <CustomButton  title="Sign Up" className="mt-4" />
                         </ScrollView>
                     </Swiper>
 
@@ -133,6 +142,6 @@ export default function SignUp() {
                     </View>
                 </ReactNativeModal>
             </View>
-        </ScrollView>
+        </SafeAreaView>
     );
 };

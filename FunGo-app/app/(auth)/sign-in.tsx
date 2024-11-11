@@ -53,7 +53,7 @@ export default function SignIn() {
                     <OAuth />
 
                     <Link
-                        href="/(auth)/sign-up"
+                        href="/(auth)/(sign-up)"
                         className="text-lg text-center text-general-200 mt-10"
                     >
                         Don't have an account?{" "}

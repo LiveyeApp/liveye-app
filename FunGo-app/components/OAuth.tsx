@@ -3,6 +3,7 @@ import { Alert, Image, Text, View } from "react-native";
 import { googleOAuth } from "@/lib/auth";
 import CustomButton from "@/components/CustomButton";
 import { icons } from "@/components/constants";
+import React from "react";
 
 const OAuth = () => {
 //   const { startOAuthFlow } = useOAuth({ strategy: "oauth_google" });
@@ -20,7 +21,7 @@ const OAuth = () => {
   };
 
   return (
-    <View>
+    <>
       <View className="flex flex-row justify-center items-center mt-4 gap-x-3">
         <View className="flex-1 h-[1px] bg-general-100" />
         <Text className="text-lg">Or</Text>
@@ -41,7 +42,7 @@ const OAuth = () => {
         textVariant="primary"
         onPress={handleGoogleSignIn}
       />
-    </View>
+    </>
   );
 };
 
