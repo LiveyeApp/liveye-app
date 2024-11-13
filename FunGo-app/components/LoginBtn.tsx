@@ -31,14 +31,15 @@ const LoginBtn: React.FC<LoginBtnProps> = ({ type, loginWith }) => {
   return (
     <TouchableOpacity
       onPress={handlePress}
-      className={`grid grid-cols-[40px,1fr,40px] place-items-center border border-black px-3 py-3 mt-4 rounded-full w-full ${bgColor}`}
+      className={`flex-row  justify-between items-center border border-black px-6 py-3 mt-4 rounded-full w-full ${bgColor}`}
     >
       <Image source={imageMap[type]} style={{ width: 24, height: 24 }} />
       <View>
-        <Text className={`${textColor} text-base font-Inter`}>
+        <Text className={`${textColor} text-base`}>
           {`Continue with ${type.charAt(0).toUpperCase() + type.slice(1)}`}
         </Text>
       </View>
+      <View style={{ width: 24, height: 24 }}></View>
     </TouchableOpacity>
   )
 }
